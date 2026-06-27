@@ -761,7 +761,7 @@ async function sendWhatsAppMessage(to, body) {
 
 // ─── Arranque ─────────────────────────────────────────────────────────────────
 if (require.main === module) {
-  app.listen(PORT, () => {
+  app.listen(PORT, '0.0.0.0', () => {
     console.log(`[BOOT] Servidor escuchando en puerto ${PORT}`);
     console.log('[BOOT] WhatsApp config', {
       verifyTokenLoaded:   Boolean(WHATSAPP_VERIFY_TOKEN),
