@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
 const { createClient } = require('@supabase/supabase-js');
+const ws = require('ws');
 
 const app = express();
 app.use(express.json());
@@ -40,7 +41,9 @@ const SESSION_TTL_MS = 30 * 60 * 1000;
 const SESSION_CLEANUP_INTERVAL_MS = 10 * 60 * 1000;
 
 const supabase = SUPABASE_URL && SUPABASE_SERVICE_ROLE_KEY
-  ? createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY)
+  ? createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, {
+      realtime: { transport: ws },
+    })
   : null;
 
 const ADVISOR_PHONE_DISPLAY = '55 2936 8434';
