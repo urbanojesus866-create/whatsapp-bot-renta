@@ -45,8 +45,8 @@ const supabase = SUPABASE_URL && SUPABASE_SERVICE_ROLE_KEY
   ? createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY)
   : null;
 
-const ADVISOR_PHONE_DISPLAY = '55 2936 8434';
-const ADVISOR_PHONE_WHATSAPP = '525529368434';
+const ADVISOR_PHONE_DISPLAY = '55 4222 0779';
+const ADVISOR_PHONE_WHATSAPP = '525542220779';
 
 function advisorContactBlock() {
   return (
@@ -662,7 +662,6 @@ async function processMessage(from, rawText) {
       `🏠 *Propiedad:* ${prop?.colonia || prop?.titulo || 'la que elegiste'}\n` +
       `📅 *Horario:* ${selected}\n\n` +
       `Un asesor se pondrá en contacto contigo a la brevedad. 📞\n\n` +
-      advisorContactBlock() + '\n\n' +
       'Escribe *hola* si deseas realizar otra búsqueda.'
     );
 
